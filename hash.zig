@@ -4,7 +4,12 @@ const utils = @import("utils.zig");
 pub const NB_BITS: u8 = 30;
 const HASH_SIZE: usize = 1 << NB_BITS;
 const HASH_MASK: utils.Sigs = HASH_SIZE - 1;
-const HashElem = packed struct { sig: utils.Sigs, v_inf: utils.Vals, v_sup: utils.Vals, d: utils.Depth };
+const HashElem = packed struct {
+    sig: utils.Sigs,
+    v_inf: utils.Vals,
+    v_sup: utils.Vals,
+    d: utils.Depth
+};
 const ZHASH = HashElem{ .sig = 0, .v_inf = Vals_min, .v_sup = Vals_max, .d = 0 };
 var first_hash: Sigs = undefined;
 var hashesw: [PIECES][SIZE]Sigs = undefined;
